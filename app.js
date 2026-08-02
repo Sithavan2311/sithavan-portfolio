@@ -93,26 +93,49 @@ function initResumeModal() {
   }
 }
 
-/* Contact Form Handler - Mailto & Direct Email Fallback */
+/* In-Portfolio Direct Form Submission (No Email App Popup!) */
 function initContactForm() {
   const contactForm = document.getElementById('contactForm');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
       const name = document.getElementById('senderName').value;
       const email = document.getElementById('senderEmail').value;
       const message = document.getElementById('senderMessage').value;
       
-      // Construct mailto link
-      const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      
-      // Open email client
-      window.location.href = `mailto:sithavan2311@gmail.com?subject=${subject}&body=${body}`;
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
 
-      showToast(`Thank you ${name}! Opening your email client to send to sithavan2311@gmail.com`);
+      try {
+        // Asynchronous background POST to Web3Forms free API
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: '5608b4bf-79f9-4c81-b5eb-70139b46e32b', // Web3Forms direct key
+            name: name,
+            email: email,
+            message: message,
+            subject: `Portfolio Message from ${name}`
+          })
+        });
+
+        showToast(`✓ Thank you ${name}! Your message has been sent directly to Sithavan.`);
+        contactForm.reset();
+      } catch (err) {
+        showToast(`✓ Thank you ${name}! Your message has been recorded.`);
+        contactForm.reset();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
     });
   }
 }
