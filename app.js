@@ -93,7 +93,7 @@ function initResumeModal() {
   }
 }
 
-/* Contact Form Feedback */
+/* Contact Form Handler - Mailto & Direct Email Fallback */
 function initContactForm() {
   const contactForm = document.getElementById('contactForm');
 
@@ -103,9 +103,16 @@ function initContactForm() {
       
       const name = document.getElementById('senderName').value;
       const email = document.getElementById('senderEmail').value;
+      const message = document.getElementById('senderMessage').value;
       
-      showToast(`Thank you ${name}! Your message has been sent successfully.`);
-      contactForm.reset();
+      // Construct mailto link
+      const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      
+      // Open email client
+      window.location.href = `mailto:sithavan2311@gmail.com?subject=${subject}&body=${body}`;
+
+      showToast(`Thank you ${name}! Opening your email client to send to sithavan2311@gmail.com`);
     });
   }
 }
