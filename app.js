@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let lastScrollY = window.scrollY;
-let scrollDirection = 'down';
 
 /* Directional Scroll Detection & Navbar Auto Hide/Show */
 function initDirectionalScroll() {
@@ -30,13 +29,11 @@ function initDirectionalScroll() {
     }
 
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scrolling DOWN (kila scroll panna mela marayanum)
-      scrollDirection = 'down';
+      // Scrolling DOWN
       navbar.classList.add('nav-hidden');
       navbar.classList.remove('nav-visible');
     } else if (currentScrollY < lastScrollY) {
-      // Scrolling UP (mela scroll panna kila marayanum)
-      scrollDirection = 'up';
+      // Scrolling UP
       navbar.classList.remove('nav-hidden');
       navbar.classList.add('nav-visible');
     }
@@ -83,19 +80,15 @@ function initScrollReveal() {
       const rect = entry.boundingClientRect;
 
       if (entry.isIntersecting) {
-        // Element is visible
         entry.target.classList.remove('hide-below', 'hide-above');
         entry.target.classList.add('revealed');
       } else {
-        // Element is out of view
         entry.target.classList.remove('revealed');
 
         if (rect.top > window.innerHeight) {
-          // Element is below viewport -> hide below
           entry.target.classList.add('hide-below');
           entry.target.classList.remove('hide-above');
         } else if (rect.bottom < 0) {
-          // Element is above viewport -> hide above
           entry.target.classList.add('hide-above');
           entry.target.classList.remove('hide-below');
         }
@@ -170,7 +163,7 @@ function initSkillFilters() {
   });
 }
 
-/* Resume Modal Handler */
+/* Interactive Resume Modal Handler */
 function initResumeModal() {
   const resumeModal = document.getElementById('resumeModal');
   const openBtns = document.querySelectorAll('.open-resume-btn');
@@ -179,13 +172,19 @@ function initResumeModal() {
   openBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (resumeModal) resumeModal.classList.add('active');
+      if (resumeModal) {
+        resumeModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     });
   });
 
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-      if (resumeModal) resumeModal.classList.remove('active');
+      if (resumeModal) {
+        resumeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
     });
   }
 
@@ -193,6 +192,7 @@ function initResumeModal() {
     resumeModal.addEventListener('click', (e) => {
       if (e.target === resumeModal) {
         resumeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
     });
   }
