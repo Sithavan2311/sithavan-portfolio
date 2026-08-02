@@ -1,5 +1,5 @@
 /* ==========================================
-   SITHAVAN S - PORTFOLIO INTERACTIVE APP
+   SITHAVAN S - 3D INTERACTIVE & SCROLL ANIMATIONS
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillFilters();
   initResumeModal();
   initContactForm();
+  initScrollReveal();
+  init3DTiltEffect();
+  initHeroParallax();
 });
 
 /* Navbar Background Blur on Scroll */
@@ -41,6 +44,77 @@ function initMobileMenu() {
   }
 }
 
+/* Scroll-Driven In and Out Animations (IntersectionObserver) */
+function initScrollReveal() {
+  // Add reveal-item class to sections and cards automatically
+  const targets = document.querySelectorAll('.glass-card, .section-header, .hero-content, .hero-image-wrapper, .timeline-item');
+
+  targets.forEach((el, index) => {
+    el.classList.add('reveal-item');
+    el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+  });
+
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      } else {
+        // In and Out animation: remove when scrolling far away
+        if (entry.boundingClientRect.top > window.innerHeight) {
+          entry.target.classList.remove('revealed');
+        }
+      }
+    });
+  }, observerOptions);
+
+  targets.forEach(el => observer.observe(el));
+}
+
+/* Dynamic 3D Card Tilt Effect on Mouse Move */
+function init3DTiltEffect() {
+  const cards = document.querySelectorAll('.glass-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 12;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)`;
+    });
+  });
+}
+
+/* 3D Hero Avatar Mouse Tracking Parallax */
+function initHeroParallax() {
+  const avatarWrapper = document.querySelector('.hero-image-wrapper');
+  const avatar = document.querySelector('.hero-avatar');
+
+  if (avatarWrapper && avatar) {
+    document.addEventListener('mousemove', (e) => {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
+
+      avatar.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) translateZ(20px)`;
+    });
+  }
+}
+
 /* Interactive Skill Filter Tabs */
 function initSkillFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -56,7 +130,7 @@ function initSkillFilters() {
       skillCards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.4s ease';
+          card.style.animation = 'slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
         } else {
           card.style.display = 'none';
         }
@@ -93,7 +167,7 @@ function initResumeModal() {
   }
 }
 
-/* In-Portfolio Direct Form Submission (No Email App Popup!) */
+/* In-Portfolio Direct Form Submission */
 function initContactForm() {
   const contactForm = document.getElementById('contactForm');
 
@@ -111,15 +185,14 @@ function initContactForm() {
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
 
       try {
-        // Asynchronous background POST to Web3Forms free API
-        const response = await fetch('https://api.web3forms.com/submit', {
+        await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            access_key: '5608b4bf-79f9-4c81-b5eb-70139b46e32b', // Web3Forms direct key
+            access_key: '5608b4bf-79f9-4c81-b5eb-70139b46e32b',
             name: name,
             email: email,
             message: message,
