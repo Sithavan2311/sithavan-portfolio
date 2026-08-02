@@ -125,7 +125,7 @@ a {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 2rem;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
   transform-style: preserve-3d;
   box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   position: relative;
@@ -136,17 +136,29 @@ a {
   box-shadow: 0 20px 50px rgba(0, 242, 254, 0.25), inset 0 1px 0 0 rgba(0, 242, 254, 0.3);
 }
 
-/* Scroll Reveal In & Out Classes */
+/* Directional Scroll Reveal Classes (Mela / Kila Hide & Show) */
 .reveal-item {
   opacity: 0;
-  transform: translateY(50px) scale(0.95) rotateX(8deg);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
+/* Default initial hidden state (below) */
+.reveal-item.hide-below {
+  opacity: 0;
+  transform: translateY(60px) scale(0.94);
+}
+
+/* Hidden state when scrolled past top (above) */
+.reveal-item.hide-above {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.94);
+}
+
+/* Fully visible state */
 .reveal-item.revealed {
   opacity: 1;
-  transform: translateY(0) scale(1) rotateX(0deg);
+  transform: translateY(0) scale(1);
 }
 
 /* Buttons with 3D Elevate Effect */
@@ -189,12 +201,12 @@ a {
 .btn-outline:hover {
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
-  background: rgba(0, 242, 254, 0.08);
+  background: rgba(0, 0, 254, 0.08);
   transform: translateY(-4px) scale(1.03) translateZ(10px);
   box-shadow: 0 10px 30px rgba(0, 242, 254, 0.2);
 }
 
-/* Header & Navbar */
+/* Navbar Dynamic Hide / Show on Scroll Direction */
 .navbar {
   position: fixed;
   top: 0;
@@ -202,15 +214,25 @@ a {
   right: 0;
   z-index: 1000;
   padding: 1.2rem 0;
-  transition: var(--transition-normal);
+  transition: transform 0.4s ease, background 0.3s ease, padding 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: rgba(6, 8, 13, 0.85);
+  background: rgba(6, 8, 13, 0.88);
   backdrop-filter: blur(25px);
   border-bottom: 1px solid var(--border-light);
   padding: 0.8rem 0;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Hide Navbar when scrolling DOWN */
+.navbar.nav-hidden {
+  transform: translateY(-100%);
+}
+
+/* Show Navbar when scrolling UP */
+.navbar.nav-visible {
+  transform: translateY(0);
 }
 
 .nav-container {

@@ -3,7 +3,7 @@
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbarScroll();
+  initDirectionalScroll();
   initMobileMenu();
   initSkillFilters();
   initResumeModal();
@@ -13,15 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroParallax();
 });
 
-/* Navbar Background Blur on Scroll */
-function initNavbarScroll() {
+let lastScrollY = window.scrollY;
+let scrollDirection = 'down';
+
+/* Directional Scroll Detection & Navbar Auto Hide/Show */
+function initDirectionalScroll() {
   const navbar = document.querySelector('.navbar');
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling DOWN (kila scroll panna mela marayanum)
+      scrollDirection = 'down';
+      navbar.classList.add('nav-hidden');
+      navbar.classList.remove('nav-visible');
+    } else if (currentScrollY < lastScrollY) {
+      // Scrolling UP (mela scroll panna kila marayanum)
+      scrollDirection = 'up';
+      navbar.classList.remove('nav-hidden');
+      navbar.classList.add('nav-visible');
+    }
+
+    lastScrollY = currentScrollY;
   });
 }
 
@@ -44,29 +64,40 @@ function initMobileMenu() {
   }
 }
 
-/* Scroll-Driven In and Out Animations (IntersectionObserver) */
+/* Scroll-Driven Directional In and Out Animations */
 function initScrollReveal() {
-  // Add reveal-item class to sections and cards automatically
   const targets = document.querySelectorAll('.glass-card, .section-header, .hero-content, .hero-image-wrapper, .timeline-item');
 
   targets.forEach((el, index) => {
-    el.classList.add('reveal-item');
-    el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+    el.classList.add('reveal-item', 'hide-below');
+    el.style.transitionDelay = `${(index % 3) * 0.12}s`;
   });
 
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const rect = entry.boundingClientRect;
+
       if (entry.isIntersecting) {
+        // Element is visible
+        entry.target.classList.remove('hide-below', 'hide-above');
         entry.target.classList.add('revealed');
       } else {
-        // In and Out animation: remove when scrolling far away
-        if (entry.boundingClientRect.top > window.innerHeight) {
-          entry.target.classList.remove('revealed');
+        // Element is out of view
+        entry.target.classList.remove('revealed');
+
+        if (rect.top > window.innerHeight) {
+          // Element is below viewport -> hide below
+          entry.target.classList.add('hide-below');
+          entry.target.classList.remove('hide-above');
+        } else if (rect.bottom < 0) {
+          // Element is above viewport -> hide above
+          entry.target.classList.add('hide-above');
+          entry.target.classList.remove('hide-below');
         }
       }
     });
