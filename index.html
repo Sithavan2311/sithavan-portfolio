@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sithavan S | Java Software Developer & Full-Stack Engineer</title>
+  <meta name="description" content="Portfolio of Sithavan S - Java Software Developer with hands-on experience in Spring Boot, RESTful APIs, EHR Healthcare Systems, Next.js, and React.">
+  <meta name="keywords" content="Sithavan S, Java Developer, Spring Boot, Full Stack Developer, Next.js, React, EHR Healthcare, Chennai Software Engineer">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">SITHAVAN<span>.DEV</span></a>
+      
+      <button class="mobile-toggle" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#" class="btn btn-outline open-resume-btn"><i class="fas fa-file-pdf"></i> Resume</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span> Available for Java & Full-Stack Roles
+        </div>
+        <h1 class="hero-title">Building Scalable, <span class="gradient-text">Production-Grade</span> Systems</h1>
+        <p class="hero-subtitle">
+          Java Software Developer with 8+ months of hands-on experience crafting secure Spring Boot microservices, REST APIs, and full-stack healthcare applications (EHR) with React & Next.js.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Explore Work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+          <a href="#" class="btn btn-outline open-resume-btn"><i class="fas fa-eye"></i> View Resume</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>8+ Months</h3>
+            <p>Full-Stack EHR Systems Exp</p>
+          </div>
+          <div class="stat-item">
+            <h3>Spring Boot</h3>
+            <p>Backend & REST API Design</p>
+          </div>
+          <div class="stat-item">
+            <h3>B.Tech IT</h3>
+            <p>Adhiyamman College (2021–25)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img src="assets/images/avatar.jpg" alt="Sithavan S Developer Avatar" class="hero-avatar">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <p class="section-subtitle">Passionate Java Software Developer based in Chennai, Tamil Nadu</p>
+      </div>
+
+      <div class="glass-card about-card" style="max-width: 900px; margin: 0 auto;">
+        <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.8;">
+          I am a <strong>Java Software Developer</strong> with strong expertise in building and maintaining full-stack healthcare systems. My technical foundation spans <strong>Java, Spring Boot, RESTful API design, JWT authentication, and FHIR interoperability adapters</strong>, paired with dynamic frontend development using <strong>React, Next.js, and TypeScript</strong>.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8;">
+          I specialize in designing secure backend microservices, optimizing database queries in PostgreSQL & MySQL, and integrating third-party APIs like AI voice assistants and PDF export generators. Driven by clean architecture and object-oriented design, I aim to contribute to high-scale, production-grade applications in agile environments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Core <span class="gradient-text">Competencies</span></h2>
+        <p class="section-subtitle">Technologies and tools I use to build robust software solutions</p>
+      </div>
+
+      <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">All Tech</button>
+        <button class="filter-btn" data-filter="backend">Backend & APIs</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="database">Databases & Tools</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Backend Skills -->
+        <div class="glass-card skill-card" data-category="backend">
+          <div class="skill-icon"><i class="fas fa-leaf"></i></div>
+          <div class="skill-info">
+            <h4>Spring Boot</h4>
+            <p>REST APIs & Microservices</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="backend">
+          <div class="skill-icon"><i class="fas fa-key"></i></div>
+          <div class="skill-info">
+            <h4>JWT Authentication</h4>
+            <p>Secure Auth & Token Management</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="backend">
+          <div class="skill-icon"><i class="fas fa-notes-medical"></i></div>
+          <div class="skill-info">
+            <h4>FHIR Integration</h4>
+            <p>Healthcare System Interoperability</p>
+          </div>
+        </div>
+
+        <!-- Frontend Skills -->
+        <div class="glass-card skill-card" data-category="frontend">
+          <div class="skill-icon"><i class="fab fa-react"></i></div>
+          <div class="skill-info">
+            <h4>React & Next.js</h4>
+            <p>TypeScript & Client Components</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="frontend">
+          <div class="skill-icon"><i class="fab fa-js"></i></div>
+          <div class="skill-info">
+            <h4>JavaScript / HTML5 / CSS3</h4>
+            <p>Responsive Web Layouts</p>
+          </div>
+        </div>
+
+        <!-- Databases & Tools -->
+        <div class="glass-card skill-card" data-category="database">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <div class="skill-info">
+            <h4>PostgreSQL & MySQL</h4>
+            <p>Database Design & SQL</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="database">
+          <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+          <div class="skill-info">
+            <h4>Git Version Control</h4>
+            <p>Agile Workflow & GitHub</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="database">
+          <div class="skill-icon"><i class="fas fa-vial"></i></div>
+          <div class="skill-info">
+            <h4>API Testing & OOP</h4>
+            <p>Postman & Clean Code Principles</p>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="glass-card skill-card" data-category="languages">
+          <div class="skill-icon"><i class="fab fa-java"></i></div>
+          <div class="skill-info">
+            <h4>Java</h4>
+            <p>Primary Backend Language</p>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card" data-category="languages">
+          <div class="skill-icon"><i class="fab fa-python"></i></div>
+          <div class="skill-info">
+            <h4>Python</h4>
+            <p>Scripting & Data Processing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+        <p class="section-subtitle">My hands-on industry background building production software</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Qiaben Health Care Solutions -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Nov 2025 – Jun 2026 | Remote</span>
+          <h3 class="timeline-title">Java Developer</h3>
+          <h4 class="timeline-company">Qiaben Health Care Solutions</h4>
+          <div class="glass-card" style="margin-top: 1rem;">
+            <ul class="timeline-list">
+              <li>Developed backend services in Java (Spring Boot) and frontend components in Next.js / TypeScript / React for a full-stack Electronic Health Record (EHR) system.</li>
+              <li>Implemented core clinical workflows including encounters, assessments, medical history, physical exams, and provider sign-off, plus billing modules (invoices, claims, payments).</li>
+              <li>Designed secure authentication using JWT and integrated FHIR-based external storage adapters for third-party healthcare system interoperability.</li>
+              <li>Improved system reliability by implementing safe API response parsing, e-signature workflows, PDF export, and AI voice assistant support for documentation.</li>
+              <li>Built reusable client-side components to speed up feature development and maintain UI consistency.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Barola Technologies -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Jun 2023 | Remote</span>
+          <h3 class="timeline-title">IoT Technologies Intern</h3>
+          <h4 class="timeline-company">Barola Technologies</h4>
+          <div class="glass-card" style="margin-top: 1rem;">
+            <ul class="timeline-list">
+              <li>Completed hands-on training in IoT fundamentals, sensors, microcontrollers, and embedded systems.</li>
+              <li>Built and tested basic IoT modules to collect and monitor real-time sensor data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">Key software engineering projects I have designed & developed</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: EHR System -->
+        <div class="glass-card project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/ehr_cover.jpg" alt="Electronic Health Record System" class="project-img">
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">FHIR</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <h3 class="project-title">Full-Stack Electronic Health Record (EHR) System</h3>
+            <p class="project-desc">
+              Comprehensive healthcare platform featuring clinical encounter workflows, billing modules, JWT secure auth, FHIR data adapters, and AI voice assistant documentation support.
+            </p>
+            <a href="#contact" class="btn btn-outline" style="width: fit-content;"><i class="fas fa-info-circle"></i> Case Study</a>
+          </div>
+        </div>
+
+        <!-- Project 2: Campus Recruitment -->
+        <div class="glass-card project-card">
+          <div class="project-img-wrapper" style="background: radial-gradient(circle at center, rgba(0,242,254,0.2), #12161f); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-graduation-cap" style="font-size: 4rem; color: var(--accent-cyan);"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Web Application</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">REST API</span>
+            </div>
+            <h3 class="project-title">Campus Recruitment System</h3>
+            <p class="project-desc">
+              Web-based placement management platform facilitating student registrations, job postings, recruiter scheduling, and application tracking.
+            </p>
+            <a href="#contact" class="btn btn-outline" style="width: fit-content;"><i class="fas fa-info-circle"></i> Learn More</a>
+          </div>
+        </div>
+
+        <!-- Project 3: Genetic Disorder Prediction -->
+        <div class="glass-card project-card">
+          <div class="project-img-wrapper" style="background: radial-gradient(circle at center, rgba(112,0,255,0.2), #12161f); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-dna" style="font-size: 4rem; color: var(--accent-violet);"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Desktop & Web</span>
+            </div>
+            <h3 class="project-title">Genetic Disorder Prediction Model</h3>
+            <p class="project-desc">
+              Web and desktop application in Java leveraging machine learning algorithms to predict genetic disorders from patient clinical and lab dataset features.
+            </p>
+            <a href="#contact" class="btn btn-outline" style="width: fit-content;"><i class="fas fa-info-circle"></i> Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Education & <span class="gradient-text">Training</span></h2>
+        <p class="section-subtitle">My academic qualifications and specialized courses</p>
+      </div>
+
+      <div class="education-grid">
+        <div class="glass-card edu-card">
+          <i class="fas fa-university" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+          <h3>B.Tech in Information Technology</h3>
+          <p class="edu-institution">Adhiyamman College of Engineering</p>
+          <p class="edu-period">2021 – 2025</p>
+        </div>
+
+        <div class="glass-card edu-card">
+          <i class="fas fa-certificate" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+          <h3>Full-Stack Development</h3>
+          <p class="edu-institution">Qspiders Training Institute</p>
+          <p class="edu-period">Full-Stack Python & Java Web Development</p>
+        </div>
+
+        <div class="glass-card edu-card">
+          <i class="fas fa-school" style="font-size: 2rem; color: var(--accent-violet); margin-bottom: 1rem;"></i>
+          <h3>Higher Secondary & High School</h3>
+          <p class="edu-institution">St. Vincent Pallotti & DJM School</p>
+          <p class="edu-period">12th (2020-21) & 10th (2018-19) State Board</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-subtitle">Let's discuss opportunities, projects, or collaborations</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="glass-card">
+          <h3>Contact Details</h3>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">I am currently seeking Java Developer & Full-Stack roles. Reach out via email, phone, or LinkedIn!</p>
+
+          <div class="contact-info-list">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Email</p>
+                <a href="mailto:sithavan2311@gmail.com" style="font-weight: 600; color: #fff;">sithavan2311@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Phone</p>
+                <a href="tel:+918838547460" style="font-weight: 600; color: #fff;">+91 8838547460</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">LinkedIn</p>
+                <a href="https://www.linkedin.com/in/sithavan16" target="_blank" style="font-weight: 600; color: var(--accent-cyan);">linkedin.com/in/sithavan16</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Location</p>
+                <p style="font-weight: 600; color: #fff;">Chennai, Tamil Nadu, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3>Send a Message</h3>
+          <form class="contact-form" id="contactForm" style="margin-top: 1.5rem;">
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="senderEmail">Your Email</label>
+              <input type="email" id="senderEmail" class="form-input" placeholder="e.g. john@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" class="form-textarea" placeholder="Hi Sithavan, I'd like to discuss a Java Developer position..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sithavan S. Built with passion & modern web technologies.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Resume Modal -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-content glass-card">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.8rem; color: #fff;">SITHAVAN S</h2>
+        <p style="color: var(--accent-cyan); font-weight: 600;">Java Developer • Software Development</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Chennai, Tamil Nadu | +91 8838547460 | sithavan2311@gmail.com | linkedin.com/in/sithavan16</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.2rem; text-align: left;">
+        <div>
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 0.4rem;">PROFESSIONAL SUMMARY</h4>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Java Software Developer with 8 months of hands-on experience building and maintaining full-stack healthcare applications. Proficient in Java, Spring Boot, RESTful APIs, JWT authentication, and frontend development with React/Next.js. Strong foundation in database design (PostgreSQL, MySQL), Git version control, and object-oriented programming. Seeking a Java Developer role to contribute to scalable, production-grade systems.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 0.4rem;">CORE COMPETENCIES</h4>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            <strong>Programming Languages:</strong> Java, Python, JavaScript, SQL, HTML, CSS<br>
+            <strong>Backend & Frameworks:</strong> Spring Boot, RESTful API Design, JWT Authentication, FHIR Integration, Microservices Fundamentals<br>
+            <strong>Frontend:</strong> React, Next.js (TypeScript)<br>
+            <strong>Databases & Tools:</strong> PostgreSQL, MySQL, Git, API Testing, OOP
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 0.4rem;">PROFESSIONAL EXPERIENCE</h4>
+          <p style="font-weight: 600; color: #fff;">Java Developer | Qiaben Health Care Solutions (Nov 2025 – Jun 2026)</p>
+          <ul style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.9rem;">
+            <li>Developed backend services in Java (Spring Boot) and frontend components in Next.js/TypeScript/React for an EHR system.</li>
+            <li>Implemented core clinical workflows, billing modules, JWT security, FHIR storage adapters, and AI voice assistant support.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
