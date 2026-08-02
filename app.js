@@ -63,7 +63,8 @@ function initMobileMenu() {
 
 /* Scroll-Driven Directional In and Out Animations */
 function initScrollReveal() {
-  const targets = document.querySelectorAll('.glass-card, .section-header, .hero-content, .hero-image-wrapper, .timeline-item');
+  // Exclude modal content from scroll reveal
+  const targets = document.querySelectorAll('section .glass-card, .section-header, .hero-content, .hero-image-wrapper, .timeline-item');
 
   targets.forEach((el, index) => {
     el.classList.add('reveal-item', 'hide-below');
@@ -101,7 +102,8 @@ function initScrollReveal() {
 
 /* Dynamic 3D Card Tilt Effect on Mouse Move */
 function init3DTiltEffect() {
-  const cards = document.querySelectorAll('.glass-card');
+  // Only target cards inside sections (not inside modal)
+  const cards = document.querySelectorAll('section .glass-card');
 
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
