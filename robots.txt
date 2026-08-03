@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sithavan2311.github.io/sithavan-portfolio/sitemap.xml
