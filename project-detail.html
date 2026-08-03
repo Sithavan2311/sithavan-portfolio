@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Sithavan S Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .project-header-banner {
+      padding: 6rem 0 3rem;
+      background: radial-gradient(circle at top center, rgba(0, 242, 254, 0.12), transparent 70%);
+      text-align: center;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+    .back-btn:hover {
+      transform: translateX(-5px);
+    }
+    .detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-list li {
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .tech-badge {
+      display: inline-block;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">SITHAVAN<span>.DEV</span></a>
+      <a href="index.html#projects" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+    </div>
+  </header>
+
+  <main id="projectDetailContent">
+    <!-- Dynamic Content Loaded by JS -->
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sithavan S. Built with passion & modern web technologies.</p>
+    </div>
+  </footer>
+
+  <script>
+    const projectsData = {
+      'ehr-system': {
+        title: 'Full-Stack Electronic Health Record (EHR) System',
+        badge: 'Professional Project (8 Months at Qiaben)',
+        subtitle: 'Production-grade healthcare platform built during 8 months of hands-on experience at Qiaben Technologies',
+        tags: ['Java', 'Spring Boot', 'Next.js', 'FHIR Interoperability', 'PostgreSQL', 'JWT Auth'],
+        heroBg: 'assets/images/ehr_cover.jpg',
+        overview: 'Developed as a full-stack Electronic Health Record (EHR) solution at Qiaben Technologies to streamline clinical documentation, provider workflows, and patient billing in high-compliance healthcare settings. Built with robust Spring Boot REST microservices and a responsive Next.js/TypeScript frontend.',
+        keyFeatures: [
+          'Clinical Workflows: Structured modules for Patient Encounters, Medical History, Assessments, Physical Exams, and Provider Sign-Off.',
+          'FHIR Interoperability: Integrated FHIR adapters enabling seamless health data exchange with external healthcare systems.',
+          'Security & Auth: End-to-end JWT token-based authentication and role-based access control (RBAC).',
+          'AI & Utility Features: AI voice assistant integration for dictating clinical notes, plus dynamic automated PDF generation for patient receipts and reports.'
+        ],
+        techStack: ['Java 17', 'Spring Boot', 'Spring Security & JWT', 'Next.js 14', 'React & TypeScript', 'PostgreSQL', 'FHIR API Adapters'],
+        role: 'Java Developer (8 Months at Qiaben Technologies)'
+      },
+      'campus-recruitment': {
+        title: 'Campus Recruitment System',
+        badge: 'Main Project (Desktop Application)',
+        subtitle: 'Desktop-based placement management platform designed to automate university campus recruitment workflows',
+        tags: ['Java', 'Desktop Application', 'Java Swing / JavaFX', 'MySQL', 'JDBC'],
+        heroBg: null,
+        icon: 'fa-graduation-cap',
+        overview: 'This is my **Main Project** — a comprehensive **Java Desktop Application** engineered specifically for college placement cells. It simplifies student registrations, company job postings, candidate shortlisting, recruiter interview scheduling, and placement tracking in a unified desktop interface.',
+        keyFeatures: [
+          'Desktop GUI Interface: Intuitive Java Swing/JavaFX dashboard built for speed and offline administrative usage.',
+          'Student & Recruiter Modules: Student profile management, eligibility filtering, and company vacancy management.',
+          'Database Management: Structured MySQL relational database handling student records, grades, and company applications.',
+          'Reporting & Analytics: Automated generation of placement statistics, candidate status reports, and export capabilities.'
+        ],
+        techStack: ['Java (JDK 17)', 'Java Swing / JavaFX', 'MySQL Database', 'JDBC Driver', 'Clean OOP Architecture'],
+        role: 'Main Project Lead Developer'
+      },
+      'genetic-disorder': {
+        title: 'Genetic Disorder Prediction Model',
+        badge: 'Mini Project (Web Application)',
+        subtitle: 'Web-based machine learning prediction application designed to analyze clinical dataset parameters',
+        tags: ['Java', 'Web Application', 'Machine Learning', 'Data Processing', 'HTML/CSS/JS'],
+        heroBg: null,
+        icon: 'fa-dna',
+        overview: 'This is my **Mini Project** — a **Web Application** built using Java and Web technologies. It leverages machine learning algorithms to evaluate patient clinical indicators, laboratory parameters, and genetic data to predict potential genetic disorders early.',
+        keyFeatures: [
+          'Web Interface: Responsive web dashboard where medical staff can input patient clinical parameters.',
+          'Machine Learning Classification: Implemented classification algorithms to process dataset feature inputs and evaluate mutation risk scores.',
+          'Instant Diagnostic Insights: Generates visual disorder probability summaries to assist preliminary clinical analysis.',
+          'Data Validation: Strict input validation and sanitization for medical dataset inputs.'
+        ],
+        techStack: ['Java', 'Java Web Servlets / Spring MVC', 'HTML5 & CSS3', 'JavaScript', 'Machine Learning Algorithms', 'MySQL'],
+        role: 'Mini Project Developer'
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id') || 'ehr-system';
+      const project = projectsData[projectId] || projectsData['ehr-system'];
+
+      const container = document.getElementById('projectDetailContent');
+
+      let mediaHtml = '';
+      if (project.heroBg) {
+        mediaHtml = `<img src="${project.heroBg}" alt="${project.title}" style="width:100%; max-height:400px; object-fit:cover; border-radius:16px; margin-bottom:2rem; border:1px solid var(--border-light);">`;
+      } else {
+        mediaHtml = `
+          <div style="background: radial-gradient(circle at center, rgba(0,242,254,0.15), #12161f); height:220px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:2rem; border:1px solid var(--border-light);">
+            <i class="fas ${project.icon}" style="font-size: 5rem; color: var(--accent-cyan);"></i>
+          </div>`;
+      }
+
+      const tagsHtml = project.tags.map(t => `<span class="tech-badge">${t}</span>`).join('');
+      const featuresHtml = project.keyFeatures.map(f => `<li><i class="fas fa-check-circle" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i>${f}</li>`).join('');
+      const stackHtml = project.techStack.map(s => `<li style="color: #fff; margin-bottom:0.4rem;">• ${s}</li>`).join('');
+
+      container.innerHTML = `
+        <div class="project-header-banner">
+          <div class="container">
+            <span style="display:inline-block; background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid var(--accent-cyan); padding:0.3rem 1rem; border-radius:20px; font-size:0.85rem; font-weight:600; margin-bottom:1rem;">${project.badge}</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">${project.title}</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 750px; margin: 0 auto 1.5rem; line-height:1.6;">${project.subtitle}</p>
+            <div>${tagsHtml}</div>
+          </div>
+        </div>
+
+        <div class="container" style="max-width: 1000px; padding: 2rem 1rem;">
+          ${mediaHtml}
+
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 1rem;">Project Overview</h2>
+              <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">${project.overview}</p>
+
+              <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 1rem;">Key Highlights & Architecture</h3>
+              <ul class="feature-list" style="list-style: none; padding: 0;">
+                ${featuresHtml}
+              </ul>
+            </div>
+
+            <div>
+              <div class="detail-card" style="padding: 1.8rem;">
+                <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 1rem;">Role & Classification</h3>
+                <p style="color: var(--accent-cyan); font-size: 0.95rem; font-weight:600; margin-bottom: 1.5rem;">${project.role}</p>
+
+                <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 1rem;">Technologies Used</h3>
+                <ul style="list-style: none; padding: 0;">
+                  ${stackHtml}
+                </ul>
+
+                <a href="index.html#contact" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1.5rem;">
+                  <i class="fas fa-envelope"></i> Discuss This Project
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

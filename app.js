@@ -209,16 +209,16 @@ function initContactForm() {
       e.preventDefault();
       
       const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const name = document.getElementById('senderName').value;
-      const email = document.getElementById('senderEmail').value;
-      const message = document.getElementById('senderMessage').value;
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const message = document.getElementById('senderMessage').value.trim();
       
       const originalBtnText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
 
       try {
-        await fetch('https://api.web3forms.com/submit', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -229,14 +229,24 @@ function initContactForm() {
             name: name,
             email: email,
             message: message,
-            subject: `Portfolio Message from ${name}`
+            subject: `Portfolio Inquiry from ${name}`
           })
         });
 
-        showToast(`✓ Thank you ${name}! Your message has been sent directly to Sithavan.`);
-        contactForm.reset();
+        const data = await response.json();
+
+        if (data.success) {
+          showToast(`✓ Thank you ${name}! Your message has been sent to Sithavan.`);
+          contactForm.reset();
+        } else {
+          // Open direct mail client fallback if API key is unverified
+          window.location.href = `mailto:sithavan2311@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+          showToast(`✓ Thank you ${name}! Opening your email client to send message.`);
+          contactForm.reset();
+        }
       } catch (err) {
-        showToast(`✓ Thank you ${name}! Your message has been recorded.`);
+        window.location.href = `mailto:sithavan2311@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+        showToast(`✓ Opening email client to send message directly to Sithavan.`);
         contactForm.reset();
       } finally {
         submitBtn.disabled = false;
